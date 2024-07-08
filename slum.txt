@@ -1,0 +1,39 @@
+SLURM useful comments
+1. sinfo - display nodes partiion like whether it is CPU , GPU or HM nodes
+
+2. squeue- display the jobs in the scheduling queue
+
+3. salloc - request an interactive job session
+
+4. sbatch - submit a batch script to slurm
+
+5. scontrol - it control the information 
+
+6. scancel - it cancel the job 
+
+
+
+----------------------------------------------------------
+ salloc --time=00:03:00 --partition=cpu --nodes=1 --ntasks-per-node =1 
+ (above command is for the getting allotment of the node)
+ 
+*******************************************************************************
+basic script
+
+#!/bin/bash
+
+#SBATCH --nodes=1
+#SBATCH --nstasks-per-node=1
+
+#SBATCH --time=00:05:00
+#SBATCH --partition=cpu
+
+#SBATCH -o %j ./out     (where o is the output and j is the job id)
+#SBATCH -e %j./e        (where e is the error and j is the job id)
+
+srun hostname
+
+srun echo ${SLURM_JOBID}
+************************
+run commmand is 
+sbatch scriptname.sh
