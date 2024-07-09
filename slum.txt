@@ -37,3 +37,22 @@ srun echo ${SLURM_JOBID}
 ************************
 run commmand is 
 sbatch scriptname.sh
+
+***********************************************************
+scontrol show node <name of node>
+(this will show the information about the nodes)
+
+
+*************** 09th july 2024***********
+squeue --me (it will show the job id of my)
+
+--job name (from this command job name is given)
+
+*******************************************
+scontrol show  partition
+scontrol show node <nodename>
+scontrol show job <job_id>
+scontrol show  res
+scontrol create res(can be run from root access only)
+
+********************************************
